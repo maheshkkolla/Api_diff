@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  script(src="./javascripts/jquery.min.js")
+  script(src="./javascripts/showDiff.js")
+  link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  h1 API Difference
+  | Select the API to show the difference:  
+  select(id="apis" onchange="show(this)" class="btn btn-default")
+   each api in apis
+     option(value=JSON.stringify(api)) #{api.path} - #{api.method}
+
+  div(class="row")
+   h3(id="path")  
+   div(class="col-md-6 borderRight")
+    center
+     h3 OLD VALUE
+     hr
+    p(id="old" class="lead") 
+   div(class="col-md-6")
+    center
+     h3 NEW VALUE
+     hr
+    p(id="new" class="lead") 
+
+
+
+
+
+
+
+
+
+
+
+
+  
